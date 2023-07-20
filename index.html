@@ -5,32 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brittany's Map</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./style.css"> <!-- my stylesheet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
     crossorigin=""/> <!-- leaflet stylesheet -->
-    <script src="./rain.js" defer></script>
+    
     <script src="./map.js" defer></script> <!-- this js file goes first to show the map -->
-   
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.css"/>
-    <script src="https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.js"></script>
-    
-    
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
     crossorigin=""></script> <!-- this js file goes last which pulls information from the server side of leaflet -->
+
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
+    <script src="./leaflet.Rainviewer.js"></script>
+
+   
+
 </head>
-<body>
+<body style="padding:0; margin:10px; scroll-behavior: smooth;">
+   
+    <div id="map"></div>
     <form>
-        <select id="business">
+        <select id="business" class="form-control form-control-sm">
             <option value="restaurant">Restaurants</option>
             <option value="coffee">Coffee Shops</option>
             <option value="hotel">Hotels</option>
             <option value="market">Markets</option>
         </select>
-        <button id="submit">Submit</button>
+        <button id="submit" type="button" class="btn btn-info">Submit</button>
     </form>
-    <div id="map"></div>
+
 </body>
 </html>

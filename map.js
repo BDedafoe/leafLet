@@ -4,9 +4,6 @@ const myMap = {
 	businesses: [],
 	map: {},
 	markers: {},
-    
-
-
 
 
 	// build leaflet map
@@ -18,14 +15,25 @@ const myMap = {
 		// add openstreetmap tiles
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		attribution:
-			'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			'&copy; <a href="https://www.openstreetmap.org/copyright"></a>',
 		maxZoom: '19',
 		}).addTo(this.map)
+		L.control.rainviewer({ 
+			position: 'bottomleft',
+			nextButtonText: '>',
+			playStopButtonText: 'Play / Stop',
+			prevButtonText: '<',
+			positionSliderLabelText: "Hour:",
+			opacitySliderLabelText: "Opacity:",
+			animationInterval: 500,
+			opacity: 0.5
+		}).addTo(this.map)
+				
 		// create and add geolocation marker
 		const marker = L.marker(this.coordinates)
 		marker
 		.addTo(this.map)
-		.bindPopup('<p1><b>👋 You are here</b></p1>')
+		.bindPopup('<p1>👋</p1>')
 		.openPopup()
         console.log('User current coordinates', this.coordinates) //logging user's coordinates
 	}, 
@@ -42,7 +50,6 @@ const myMap = {
 		}
 	},
 }
-
 
 
 // get coordinates via geolocation api
@@ -102,6 +109,4 @@ document.getElementById('submit').addEventListener('click', async (event) => {
 	myMap.businesses = processBusinesses(data)
 	myMap.addMarkers(business)
 })
-
-
 
